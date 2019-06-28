@@ -78,17 +78,22 @@ namespace Medic.Tools.Kit
         public static bool VerifyArgumentLimits(System.Object arg, Limits limits, Action callbackAction)
         {
             bool result;
-            if (VerifyArgumentLimits(arg, limits))
+            if (!VerifyArgumentLimits(arg, limits))
+            {
+                result = false;
+            }
+            else
             {
                 callbackAction.Invoke();
                 result = true;
             }
-            else
-            {
-                result = false;
-            }
             return result;
         }
+
     }
     #endregion //Basic Utils
+
+    #region Basic Exception
+    
+    #endregion // Basic Exception
 }
