@@ -52,11 +52,43 @@ namespace Medic.Tools.Kit
     }
     #endregion //Limits
 
+    #region Basic Utils
+    /// <summary>
+    /// 
+    /// </summary>
     public static class BasicUtils
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="arg"></param>
+        /// <param name="limits"></param>
+        /// <returns></returns>
         public static bool VerifyArgumentLimits(System.Object arg, Limits limits)
         {
-            //return (float)arg > limits.Lower && (float)arg < limits.Upper ? true : false;
+            return (float)arg >= limits.Lower && (float)arg <= limits.Upper ? true : false;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="arg"></param>
+        /// <param name="limits"></param>
+        /// <param name="callbackAction"></param>
+        /// <returns></returns>
+        public static bool VerifyArgumentLimits(System.Object arg, Limits limits, Action callbackAction)
+        {
+            bool result;
+            if (VerifyArgumentLimits(arg, limits))
+            {
+                callbackAction.Invoke();
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
+            return result;
         }
     }
+    #endregion //Basic Utils
 }

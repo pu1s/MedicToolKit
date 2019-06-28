@@ -27,7 +27,8 @@ namespace MedicToolKit
             InitializeComponent();
             limits = new MTK.Limits(1.0d, 1.2d);
             var s = limits.Range;
-            var t = MTK.BasicUtils.VerifyArgumentLimits(1.1, limits);
+            var t = 1.1f;
+            var p = MTK.BasicUtils.VerifyArgumentLimits(t, limits);
         }
     }
 }
