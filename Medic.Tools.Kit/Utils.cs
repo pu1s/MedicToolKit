@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Medic.Tools.Kit
 {
+    #region Limits
     public struct Limits    
     {
-        private double _lower;
-        private double _upper;
+        private float _lower;
+        private float _upper;
 
-        public double Lower
+        public float Lower
         {
             get
             {
@@ -19,34 +20,43 @@ namespace Medic.Tools.Kit
             }
         }
 
-        public double Upper
+        public float Upper
         {
             get
             {
                 return _upper;
             }
         }
-        public double Range
+        public float Range
         {
             get
             {
                 return _upper - _lower;
             }
         }
-        public Limits(double lower, double upper)
+        public Limits(float lower, float upper)
         {
             _lower = lower;
             _upper = upper;
         }
         public Limits(int lower, int upper)
         {
-            _lower = (double)lower;
-            _upper = (double)upper;
+            _lower = (float)lower;
+            _upper = (float)upper;
         }
-        public Limits(float lower, float upper)
+        public Limits(double lower, double upper)
         {
-            _lower = (double)lower;
-            _upper = (double)upper;
+            _lower = (float)lower;
+            _upper = (float)upper;
+        }
+    }
+    #endregion //Limits
+
+    public static class BasicUtils
+    {
+        public static bool VerifyArgumentLimits(System.Object arg, Limits limits)
+        {
+            //return (float)arg > limits.Lower && (float)arg < limits.Upper ? true : false;
         }
     }
 }

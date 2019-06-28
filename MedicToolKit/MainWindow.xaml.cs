@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using MTK = Medic.Tools.Kit;
 namespace MedicToolKit
 {
     /// <summary>
@@ -20,9 +20,14 @@ namespace MedicToolKit
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MTK.Limits limits;
+
         public MainWindow()
         {
             InitializeComponent();
+            limits = new MTK.Limits(1.0d, 1.2d);
+            var s = limits.Range;
+            var t = MTK.BasicUtils.VerifyArgumentLimits(1.1, limits);
         }
     }
 }
