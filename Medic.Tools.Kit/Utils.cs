@@ -38,5 +38,15 @@ namespace Medic.Tools.Kit
             _lower = lower;
             _upper = upper;
         }
+        public Limits(int lower, int upper)
+        {
+            _lower = (double)lower;
+            _upper = (double)upper;
+        }
+        public Limits(float lower, float upper)
+        {
+            _lower = (double)lower;
+            _upper = (double)upper;
+        }
     }
 }
