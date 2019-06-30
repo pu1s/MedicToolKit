@@ -13,16 +13,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MedicToolKit.Pages
+namespace MedicToolKit.UI.Controls.WatermarkTextBox
 {
     /// <summary>
-    /// Логика взаимодействия для MainMenu.xaml
+    /// Логика взаимодействия для WatermarkTextBox.xaml
     /// </summary>
-    public partial class MainMenu : Page
+    public partial class WatermarkTextBox : TextBox
     {
-        public MainMenu()
+        public WatermarkTextBox()
         {
             InitializeComponent();
         }
+
+
     }
 }

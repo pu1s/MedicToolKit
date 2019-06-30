@@ -86,10 +86,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Pages\MainMenuPage.xaml.cs">
-      <DependentUpon>MainMenuPage.xaml</DependentUpon>
+    <Compile Include="UI\Controls\WatermarkTextBox\WatermarkTextBox.xaml.cs">
+      <DependentUpon>WatermarkTextBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\WelcomePage.xaml.cs">
+    <Compile Include="Views\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
@@ -104,11 +104,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\MainMenuPage.xaml">
+    <Page Include="UI\Controls\WatermarkTextBox\WatermarkTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\WelcomePage.xaml">
+    <Page Include="Views\WelcomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -161,6 +161,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Commands\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
