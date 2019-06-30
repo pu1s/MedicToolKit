@@ -4,34 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedicToolKit"
-        xmlns:WatermarkTextBox="clr-namespace:MedicToolKit.UI.Controls.WatermarkTextBox" x:Class="MedicToolKit.MainWindow"
+        
         mc:Ignorable="d"
-        Title="Медицинский калькулятор" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="60"/>
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Border Grid.Row="0" Grid.Column="0" BorderThickness="0,0,0,1" Grid.ColumnSpan="2" Margin="0"/>
-        <Label Grid.Row="0" Grid.Column="1" Content="Медицинский калькулятор" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontWeight="Bold" Margin="0"/>
-
-        <StackPanel x:Name="MainMenuHorizontal" Grid.Column="1" Margin="0" Grid.Row="1" CanHorizontallyScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Hidden" Orientation="Horizontal"/>
-
-
-
-
-
-        <WatermarkTextBox:WatermarkTextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="105,52,0,0" Grid.Row="2" TextWrapping="Wrap" Text="WatermarkTextBox" VerticalAlignment="Top" Width="155"/>
-
-
-
-
-
-    </Grid>
-
-</Window>
+        Title="Медицинский калькулятор" Height="450" Width="800"/>

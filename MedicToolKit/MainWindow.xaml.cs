@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MTK = Medic.Tools.Kit;
+
 namespace MedicToolKit
 {
     /// <summary>
@@ -20,30 +20,17 @@ namespace MedicToolKit
     /// </summary>
     public partial class MainWindow : Window
     {
-
-
-        public int WinTitle
-        {
-            get { return (int)GetValue(WinTitleProperty); }
-            set { SetValue(WinTitleProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for WinTitle.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty WinTitleProperty =
-            DependencyProperty.Register("WinTitle", typeof(int), typeof(MainWindow), new PropertyMetadata(0));
-
-
         //private string _WindowTitle { get => "Медицинский калькулятор"};
-        private MTK.Limits limits;
+        //private MTK.Limits limits;
 
         public MainWindow()
         {
 
             InitializeComponent();
-            limits = new MTK.Limits(1.0d, 1.2d);
-            var s = limits.Range;
-            var t = 1.1f;
-            var p = MTK.BasicUtils.VerifyArgumentLimits(t, limits);
+            //limits = new MTK.Limits(1.0d, 1.2d);
+            //var s = limits.Range;
+            //var t = 1.1f;
+            //var p = MTK.BasicUtils.VerifyArgumentLimits(t, limits);
         }
     }
 }

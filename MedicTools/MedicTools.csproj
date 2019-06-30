@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CAA20F2C-236A-4D1E-87FD-0A4ECD3F697B}</ProjectGuid>
+    <ProjectGuid>{41F2A09C-7F54-44AB-8DF2-2575D0A3DF7F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>MedicTools</RootNamespace>
     <AssemblyName>MedicTools</AssemblyName>
@@ -95,9 +95,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\MedicToolsLibrary\Medic.Tools.Library\Medic.Tools.Library.csproj">
-      <Project>{bf0a5e9b-e8a2-403b-931f-99d333abc2d1}</Project>
-      <Name>Medic.Tools.Library</Name>
+    <ProjectReference Include="..\Medic.Tools.Kit\Medic.Tools.Kit.csproj">
+      <Project>{8634f0c3-ddcc-494f-882c-4b36396476df}</Project>
+      <Name>Medic.Tools.Kit</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
