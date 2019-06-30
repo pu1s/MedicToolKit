@@ -15,14 +15,17 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
+            <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Image x:Name="Logo" Width="100" Height="100" Grid.Column="0" Grid.Row="0"/>
 
-        <TextBlock Margin="0" TextWrapping="Wrap" Grid.RowSpan="2" FontFamily="Tahoma" FontSize="20" FontWeight="Bold" Text="Ваш медицинский калькулятор" TextAlignment="Center" Padding="0,30,0,0" Foreground="#FF343DF1" Grid.ColumnSpan="2"/>
+        <TextBlock Margin="0" TextWrapping="Wrap" Grid.RowSpan="3" FontFamily="Tahoma" FontSize="20" FontWeight="Bold" Text="Ваш медицинский калькулятор" TextAlignment="Center" Padding="0,30,0,0" Foreground="#FF343DF1" Grid.ColumnSpan="2"/>
 
 
-        <Border BorderBrush="#FF2A18E6" BorderThickness="0,1,0,0" Padding="0" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Border BorderBrush="#FF2A18E6" BorderThickness="0,1,0,0" Padding="0" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2">
+            
+        </Border>
 
     </Grid>
 </Page>

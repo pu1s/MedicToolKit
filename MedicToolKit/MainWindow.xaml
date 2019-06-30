@@ -6,13 +6,34 @@
         xmlns:local="clr-namespace:MedicToolKit"
         mc:Ignorable="d"
         Title="Медицинский калькулятор" Height="450" Width="800">
+    <Window.Resources>
+
+    </Window.Resources>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="60"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Frame x:Name="MainMenuFrame" Content="MainMenuFrame" Source="/MedicTools;component/Pages/MainMenuPage.xaml" NavigationUIVisibility="Hidden" TabIndex="1" Width="50" Margin="5"/>
-        <Frame x:Name="MainContentFrame" Content="MainContentFrame" Grid.Column="1" Margin="5" TabIndex="2" Source="/MedicTools;component/Pages/WelcomePage.xaml"/>
+        <Border Grid.Row="0" Grid.Column="0" BorderThickness="0,0,0,1" Grid.ColumnSpan="2" Margin="0">
+
+        </Border>
+        <Label Grid.Row="0" Grid.Column="1" Content="Медицинский калькулятор" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontWeight="Bold" Margin="0" Foreground="{DynamicResource LigthForegroundColor}"/>
+
+        <StackPanel x:Name="MainMenuHorizontal" Grid.Column="1" Margin="0" Grid.Row="1" CanHorizontallyScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Hidden" Orientation="Horizontal">
+
+
+            
+            
+
+        </StackPanel>
+
+
+
 
 
     </Grid>
