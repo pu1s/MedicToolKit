@@ -26,7 +26,7 @@ namespace Medic.Tools.Kit.UI.Controls.WatermarkTextBox
             //Binding binding = new Binding();
             //binding.ElementName = "WatermarkTextBox";
             //binding.Path = new PropertyPath("WatermarkTextColor");
-            //WMTextBl.SetBinding(TextBlock.ForegroundProperty, binding);
+            //InternalTextBlock.SetBinding(TextBlock.ForegroundProperty, binding);
 
         }
 
@@ -62,15 +62,15 @@ namespace Medic.Tools.Kit.UI.Controls.WatermarkTextBox
             //throw new NotImplementedException();
         }
 
-        private void WMTextBl_GotFocus(object sender, RoutedEventArgs e)
+        private void Grid_GotFocus(object sender, RoutedEventArgs e)
         {
-            WMTextBl.Visibility = Visibility.Hidden;
+            InternalTextBlock.Visibility = Visibility.Hidden;
         }
 
         private void Grid_LostFocus(object sender, RoutedEventArgs e)
         {
-            if(WMTextBx.Text.Length >0 ) WMTextBl.Visibility = Visibility.Hidden;
-            else WMTextBl.Visibility = Visibility.Visible;
+            if(InternalTextBox.Text.Length >0 ) InternalTextBlock.Visibility = Visibility.Hidden;
+            else InternalTextBlock.Visibility = Visibility.Visible;
         }
     }
 }
