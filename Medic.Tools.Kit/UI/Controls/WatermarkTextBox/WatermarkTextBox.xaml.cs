@@ -72,5 +72,18 @@ namespace Medic.Tools.Kit.UI.Controls.WatermarkTextBox
             if(WMTextBx.Text.Length >0 ) WMTextBl.Visibility = Visibility.Hidden;
             else WMTextBl.Visibility = Visibility.Visible;
         }
+
+        private void TextBlock_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+             
+        }
+
+        private void TextBlock_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                WMTextBx.Text = "Enter";
+            }
+        }
     }
 }
