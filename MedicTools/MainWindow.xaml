@@ -8,8 +8,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <WatermarkTextBox:WatermarkTextBox x:Name="wm" HorizontalAlignment="Left" Height="91" Margin="89,134,0,0" VerticalAlignment="Top" Width="398" WatermarkText="Watermark" WatermarkTextColor="#FFCF0847"/>
-        <Button x:Name="btn" Content="Button" HorizontalAlignment="Left" Margin="597,167,0,0" VerticalAlignment="Top" Width="75"/>
+        <WatermarkTextBox:WatermarkTextBox HorizontalAlignment="Left" Height="71" Margin="89,167,0,0" VerticalAlignment="Top" Width="248" WatermarkText="Watermark" WatermarkTextColor="#FFCF0847"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="597,167,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>
