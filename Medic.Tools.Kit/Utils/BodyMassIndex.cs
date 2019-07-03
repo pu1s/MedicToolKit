@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Medic.Tools.Kit
+﻿namespace Medic.Tools.Kit
 {
     /*
     И́ндекс ма́ссы те́ла(англ.body mass index (BMI), ИМТ) — величина, 

@@ -4,12 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedicTools"
-        xmlns:WatermarkTextBox="clr-namespace:Medic.Tools.Kit.UI.Controls.WatermarkTextBox;assembly=Medic.Tools.Kit" x:Class="MedicTools.MainWindow"
+        xmlns:WatermarkTextBox="clr-namespace:Medic.Tools.Kit.UI.Controls.WatermarkTextBox;assembly=Medic.Tools.Kit" 
+        x:Class="MedicTools.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <WatermarkTextBox:WatermarkTextBox HorizontalAlignment="Left" Height="71" Margin="89,167,0,0" VerticalAlignment="Top" Width="248" WatermarkText="Watermark" WatermarkTextColor="#FFCF0847"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="597,167,0,0" VerticalAlignment="Top" Width="75"/>
+        <WatermarkTextBox:WatermarkTextBox HorizontalAlignment="Left" Height="61" Margin="209,126,0,0" VerticalAlignment="Top" Width="289"/>
 
     </Grid>
 </Window>

@@ -1,36 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Medic.Tools.Kit.UI.Controls.WatermarkTextBox
 {
-    /// <summary>
-    /// Логика взаимодействия для WatermarkTextBox.xaml
-    /// </summary>
+
     public partial class WatermarkTextBox : UserControl
     {
-        public WatermarkTextBox()
-        {
-            InitializeComponent();
-            //Binding binding = new Binding();
-            //binding.ElementName = "WatermarkTextBox";
-            //binding.Path = new PropertyPath("WatermarkTextColor");
-            //InternalTextBlock.SetBinding(TextBlock.ForegroundProperty, binding);
-
-        }
-
-
 
         public string WatermarkText
         {
@@ -43,46 +23,89 @@ namespace Medic.Tools.Kit.UI.Controls.WatermarkTextBox
             DependencyProperty.Register("WatermarkText", typeof(string), typeof(WatermarkTextBox), new PropertyMetadata(String.Empty));
 
 
+        public bool IsAdornerVizible { get; set; }
+        public Limits Limits { get => limits; set => limits = value; }
 
+        private AdornerLayer adornerLayer = null;
+        private WatermarkTextBoxAdorner myAdorner = null;
+        private AdornerDecorator adornerDecorator = null;
+        private Limits limits;
 
-        public Brush WatermarkTextColor
+        public class WatermarkTextBoxAdorner : Adorner
         {
-            get { return (Brush)GetValue(WatermarkTextColorProperty); }
-            set { SetValue(WatermarkTextColorProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for WatermarkTextColor.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty WatermarkTextColorProperty =
-            DependencyProperty.Register("WatermarkTextColor", typeof(Brush), typeof(WatermarkTextBox), new FrameworkPropertyMetadata((object)null, new PropertyChangedCallback(OnWatermarkTextColorChanged)));
-
-        private static void OnWatermarkTextColorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            UserControl userControl = (UserControl)d;
-            userControl.Foreground = (Brush)e.NewValue;
-            //throw new NotImplementedException();
-        }
-
-        private void Grid_GotFocus(object sender, RoutedEventArgs e)
-        {
-            InternalTextBlock.Visibility = Visibility.Hidden;
-        }
-
-        private void Grid_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if(InternalTextBox.Text.Length >0 ) InternalTextBlock.Visibility = Visibility.Hidden;
-            else InternalTextBlock.Visibility = Visibility.Visible;
-        }
-
-        private void TextBlock_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-             
-        }
-
-        private void TextBlock_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.Key == Key.Enter)
+            private string watermarkText;
+            public WatermarkTextBoxAdorner(UIElement adornedElement) : base(adornedElement)
             {
-                WMTextBx.Text = "Enter";
+            }
+
+            public string WatermarkText { get => watermarkText; set => watermarkText = value; }
+
+            protected override void OnRender(DrawingContext drawingContext)
+            {
+                base.OnRender(drawingContext);
+                drawingContext.DrawText(new FormattedText("WatermarkText", CultureInfo.CurrentCulture, FlowDirection.LeftToRight, new Typeface("Arial"), 14.0, Brushes.Red, VisualTreeHelper.GetDpi(this).PixelsPerDip), new Point(2, 2));
+            }
+        }
+        public WatermarkTextBox()
+        {
+            InitializeComponent();
+            adornerDecorator = new AdornerDecorator
+            {
+                DataContext = new TextBox()
+            };
+            this.GotFocus += WatermarkTextBox_GotFocus;
+            this.LostFocus += WatermarkTextBox_LostFocus;
+            this.KeyUp += WatermarkTextBox_KeyUp;
+            IsAdornerVizible = (PART_TextBox.Text.Length > 0) ? true : false;
+            adornerLayer = AdornerLayer.GetAdornerLayer(PART_TextBox);
+            myAdorner = new WatermarkTextBoxAdorner(this.PART_TextBox);
+            myAdorner.WatermarkText = WatermarkText;
+            UpdateAdorner();
+
+        }
+
+        private void WatermarkTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                VereficationData(this.PART_TextBox.Text, Limits, true);
+            }
+        }
+
+        private void VereficationData(string text, Limits limits, bool v)
+        {
+
+        }
+
+        private void WatermarkTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (PART_TextBox.Text.Length > 0)
+            {
+                IsAdornerVizible = false;
+            }
+            else
+            {
+                IsAdornerVizible = true;
+            }
+            UpdateAdorner();
+        }
+
+        private void WatermarkTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            IsAdornerVizible = false;
+            UpdateAdorner();
+        }
+
+        private void UpdateAdorner()
+        {
+
+            if (IsAdornerVizible)
+            {
+                adornerLayer.Add(myAdorner);
+            }
+            else
+            {
+                adornerLayer.Remove(myAdorner);
             }
         }
     }

@@ -15,12 +15,7 @@ using System.Windows.Shapes;
 
 namespace MedicTools
 {
-    public class TBA : Adorner
-    {
-        public TBA(UIElement adornedElement) : base(adornedElement)
-        {
-        }
-    }
+    
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>

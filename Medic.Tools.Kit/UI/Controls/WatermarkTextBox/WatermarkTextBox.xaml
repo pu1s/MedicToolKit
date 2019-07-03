@@ -1,27 +1,17 @@
-﻿<UserControl x:Name="WMTextBox" x:Class="Medic.Tools.Kit.UI.Controls.WatermarkTextBox.WatermarkTextBox"
+﻿<UserControl x:Class="Medic.Tools.Kit.UI.Controls.WatermarkTextBox.WatermarkTextBox"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Medic.Tools.Kit.UI.Controls.WatermarkTextBox"
              mc:Ignorable="d" 
-             d:DesignHeight="30" d:DesignWidth="150">
-    <Grid x:Name="InternalGrid" GotFocus="Grid_GotFocus" LostFocus="Grid_LostFocus" >
-        <TextBlock x:Name="InternalTextBlock" Margin="2" Padding="2"   VerticalAlignment="Center" HorizontalAlignment="Stretch" FontStyle="Italic" Height="Auto" Text="{Binding WatermarkText, ElementName=WMTextBox}" Foreground="{Binding WatermarkTextColor, ElementName=WMTextBox}"/>
-        <TextBox x:Name="InternalTextBox" Margin="2" Padding="2" Background="{x:Null}" VerticalContentAlignment="Center" Grid.IsSharedSizeScope="True" Height="Auto"/>
+             d:DesignHeight="30" d:DesignWidth="200">
+    <Grid>
+        
+        <AdornerDecorator x:Name="PART_Decorator">
+            <TextBox x:Name="PART_TextBox" TextWrapping="NoWrap" Text="TextBox"/>
+        </AdornerDecorator>
+        
+
     </Grid>
-    <!--<UserControl.Resources>
-        <Style x:Key="VTB" TargetType="{ x:Type local:WatermarkTextBox}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TextBox">
-                        <TextBox Foreground="Azure"></TextBox>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-       
-    </UserControl.Resources>-->
-    
-    
 </UserControl>
