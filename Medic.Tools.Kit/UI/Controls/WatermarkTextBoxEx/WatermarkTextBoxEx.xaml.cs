@@ -13,22 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MedicTools
+namespace Medic.Tools.Kit.UI.Controls.WatermarkTextBoxEx
 {
-    
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для WatermarkTextBoxEx.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class WatermarkTextBoxEx : UserControl
     {
-
-        public MainWindow()
+        public WatermarkTextBoxEx()
         {
             InitializeComponent();
-           
-            
-           
         }
     }
-    
 }

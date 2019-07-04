@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Medic.Tools.Kit
 {
     #region Limits
-    public struct Limits    
+    public struct Limits
     {
         private float _lower;
         private float _upper;
@@ -94,6 +90,6 @@ namespace Medic.Tools.Kit
     #endregion //Basic Utils
 
     #region Basic Exception
-    
+
     #endregion // Basic Exception
 }
