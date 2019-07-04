@@ -10,7 +10,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button Content="Button" HorizontalAlignment="Left" Margin="597,167,0,0" VerticalAlignment="Top" Width="75"/>
-        <WatermarkTextBox:WatermarkTextBox HorizontalAlignment="Left" Height="61" Margin="209,126,0,0" VerticalAlignment="Top" Width="289"/>
+        <WatermarkTextBox:WatermarkTextBox HorizontalAlignment="Left" Height="61" Margin="209,126,0,0" VerticalAlignment="Top" Width="289" WatermarkText="Text"/>
 
     </Grid>
 </Window>

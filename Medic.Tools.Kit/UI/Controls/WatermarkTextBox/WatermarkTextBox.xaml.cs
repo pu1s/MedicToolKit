@@ -38,29 +38,33 @@ namespace Medic.Tools.Kit.UI.Controls.WatermarkTextBox
             {
             }
 
-            public string WatermarkText { get => watermarkText; set => watermarkText = value; }
+            public WatermarkTextBoxAdorner(UIElement adornedElement, string watermarkAdornerText) : base(adornedElement)
+            {
+                WatermarkAdornerText = watermarkAdornerText;
+            }
+            public string WatermarkAdornerText { get => watermarkText; set => watermarkText = value; }
 
             protected override void OnRender(DrawingContext drawingContext)
             {
                 base.OnRender(drawingContext);
-                drawingContext.DrawText(new FormattedText("WatermarkText", CultureInfo.CurrentCulture, FlowDirection.LeftToRight, new Typeface("Arial"), 14.0, Brushes.Red, VisualTreeHelper.GetDpi(this).PixelsPerDip), new Point(2, 2));
+                drawingContext.DrawText(new FormattedText(watermarkText, CultureInfo.CurrentCulture, FlowDirection.LeftToRight, new Typeface("Arial"), 14.0, Brushes.Red, VisualTreeHelper.GetDpi(this).PixelsPerDip), new Point(2, 2));
             }
         }
         public WatermarkTextBox()
         {
             InitializeComponent();
-            adornerDecorator = new AdornerDecorator
-            {
-                DataContext = new TextBox()
-            };
-            this.GotFocus += WatermarkTextBox_GotFocus;
-            this.LostFocus += WatermarkTextBox_LostFocus;
-            this.KeyUp += WatermarkTextBox_KeyUp;
-            IsAdornerVizible = (PART_TextBox.Text.Length > 0) ? true : false;
+            GotFocus += WatermarkTextBox_GotFocus;
+            LostFocus += WatermarkTextBox_LostFocus;
+            KeyUp += WatermarkTextBox_KeyUp;
+        }
+        public WatermarkTextBox(string watermarkText)
+        {
+            
+            IsAdornerVizible = true;
+            WatermarkText = watermarkText;
             adornerLayer = AdornerLayer.GetAdornerLayer(PART_TextBox);
-            myAdorner = new WatermarkTextBoxAdorner(this.PART_TextBox);
-            myAdorner.WatermarkText = WatermarkText;
-            UpdateAdorner();
+            myAdorner = new WatermarkTextBoxAdorner(PART_TextBox, WatermarkText);
+            //UpdateAdorner();
 
         }
 
@@ -98,6 +102,7 @@ namespace Medic.Tools.Kit.UI.Controls.WatermarkTextBox
 
         private void UpdateAdorner()
         {
+            IsAdornerVizible = (PART_TextBox.Text.Length > 0) ? true : false;
 
             if (IsAdornerVizible)
             {
