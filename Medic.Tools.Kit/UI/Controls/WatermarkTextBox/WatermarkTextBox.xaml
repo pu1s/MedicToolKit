@@ -5,13 +5,36 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Medic.Tools.Kit.UI.Controls.WatermarkTextBox"
              mc:Ignorable="d" 
-             d:DesignHeight="30" d:DesignWidth="200">
+             d:DesignHeight="30" d:DesignWidth="200" Background="Aqua">
     <Grid>
-        
-        <AdornerDecorator >
-            <TextBox x:Name="PART_TextBox" TextWrapping="NoWrap" Text=""/>
+        <TextBox x:Name="PART_TextBox" TextWrapping="NoWrap" Text="Test" TextAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        <AdornerDecorator x:Name="PART_Decorator">
+            <ContentPresenter>
+                <ContentPresenter.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="171*"/>
+                            <ColumnDefinition Width="29*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="Internal_textBox" TextElement.FontSize="20" Text="!" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1"></TextBlock>
+                    </Grid>
+                    
+                </ContentPresenter.Content>
+            </ContentPresenter>
         </AdornerDecorator>
         
 
     </Grid>
+    <UserControl.Resources>
+        <Style x:Key="DarkStyle" TargetType="UserControl">
+            <Style.Setters>
+                <Setter Property="Height" Value="30" />
+
+
+            </Style.Setters>
+        </Style>
+    </UserControl.Resources>
+    <UserControl.Style>
+        <Binding Mode="OneWay" Source="{StaticResource DarkStyle}"/>
+    </UserControl.Style>
 </UserControl>

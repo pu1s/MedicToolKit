@@ -52,21 +52,22 @@ namespace Medic.Tools.Kit.UI.Controls.WatermarkTextBox
         }
         public WatermarkTextBox()
         {
+
             InitializeComponent();
+           
             GotFocus += WatermarkTextBox_GotFocus;
             LostFocus += WatermarkTextBox_LostFocus;
             KeyUp += WatermarkTextBox_KeyUp;
-        }
-        public WatermarkTextBox(string watermarkText)
-        {
-            
             IsAdornerVizible = true;
-            WatermarkText = watermarkText;
             adornerLayer = AdornerLayer.GetAdornerLayer(PART_TextBox);
-            myAdorner = new WatermarkTextBoxAdorner(PART_TextBox, WatermarkText);
-            //UpdateAdorner();
-
+            myAdorner = new WatermarkTextBoxAdorner(PART_TextBox)
+            {
+                WatermarkAdornerText = "Watermark"
+            };
+            adornerDecorator = new AdornerDecorator();
+            
         }
+        
 
         private void WatermarkTextBox_KeyUp(object sender, KeyEventArgs e)
         {
@@ -104,14 +105,14 @@ namespace Medic.Tools.Kit.UI.Controls.WatermarkTextBox
         {
             IsAdornerVizible = (PART_TextBox.Text.Length > 0) ? true : false;
 
-            if (IsAdornerVizible)
-            {
-                adornerLayer.Add(myAdorner);
-            }
-            else
-            {
-                adornerLayer.Remove(myAdorner);
-            }
+            //if (IsAdornerVizible)
+            //{
+            //    adornerLayer.Add(myAdorner);
+            //}
+            //else
+            //{
+            //    adornerLayer.Remove(myAdorner);
+            //}
         }
     }
 }
