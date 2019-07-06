@@ -11,9 +11,8 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button Content="Button" HorizontalAlignment="Left" Margin="597,167,0,0" VerticalAlignment="Top" Width="75"/>
-        <WatermarkTextBox:WatermarkTextBox HorizontalAlignment="Left" Height="61" Margin="209,126,0,0" VerticalAlignment="Top" Width="289"/>
-
-        <WatermarkTextBoxEx:WatermarkTextBoxEx HorizontalAlignment="Left" Height="100" Margin="192,261,0,0" VerticalAlignment="Top" Width="220"/>
+        <WatermarkTextBox:WatermarkTextBox HorizontalAlignment="Left" Height="46" Margin="209,126,0,0" VerticalAlignment="Top" Width="289"/>
+        <WatermarkTextBoxEx:WatermarkTextBoxEx x:Name="WMTB" HorizontalAlignment="Left" Height="66" Margin="209,177,0,0" VerticalAlignment="Top" Width="289" Limits="1,6"/>
 
     </Grid>
 </Window>
