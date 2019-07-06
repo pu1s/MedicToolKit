@@ -1,9 +1,14 @@
-﻿<Application x:Class="MedicTools.App"
+﻿<Application
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:MedicTools"
+             xmlns:WatermarkTextBoxEx="clr-namespace:Medic.Tools.Kit.UI.Controls.WatermarkTextBoxEx;assembly=Medic.Tools.Kit" x:Class="MedicTools.App"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+        <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="Themes/DictionaryControls.xaml"/>
+        </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
