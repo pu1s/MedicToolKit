@@ -1,86 +1,32 @@
-﻿<UserControl x:Class="Medic.Tools.Kit.UI.Controls.WatermarkTextBoxEx.WatermarkTextBoxEx"
+﻿<UserControl x:Name="WMTextBoxEx" x:Class="Medic.Tools.Kit.UI.Controls.WatermarkTextBoxEx.WatermarkTextBoxEx"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Medic.Tools.Kit.UI.Controls.WatermarkTextBoxEx"
              mc:Ignorable="d" 
-             d:DesignHeight="30" d:DesignWidth="200" Style="{DynamicResource Default}">
-    <Grid>
-        <TextBox x:Name="PART_TextBox" Text="Text" Style="{DynamicResource TextBoxStyle1}"></TextBox>
-    </Grid>
+             d:DesignHeight="60" d:DesignWidth="300" MaxHeight="60" MaxWidth="300" ScrollViewer.VerticalScrollBarVisibility="Disabled">
     <UserControl.Resources>
-        <SolidColorBrush x:Key="BackgroundDefault"/>
-        <SolidColorBrush x:Key="ForegroundDefault" Color="Black"/>
-        <SolidColorBrush x:Key="WatermarkBackgroundDefault"/>
-        <SolidColorBrush x:Key="WatermarkForegroundDefault"/>
 
-        <Style x:Key="Default" TargetType="{x:Type local:WatermarkTextBoxEx}">
-            <Style.Setters>
-                <Setter Property="Background" Value="{DynamicResource BackgroundDefault}"/>
-                <Setter Property="Foreground" Value="{DynamicResource ForegroundDefault}"/>
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate>
-                            <Grid>
-                                <TextBox Text="" Padding="1"></TextBox>
-                                <AdornerDecorator Visibility="Visible">
-                                    <ContentPresenter x:Name="CP">
-                                        <ContentPresenter.Content>
-                                            <TextBlock Text="Test2222"></TextBlock>
-                                        </ContentPresenter.Content>
-                                    </ContentPresenter>
-                                </AdornerDecorator>
-                            </Grid>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-
-            </Style.Setters>
-        </Style>
-        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
-        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
-        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
-        <Style x:Key="TextBoxStyle1" TargetType="{x:Type TextBox}">
-            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-            <Setter Property="AllowDrop" Value="true"/>
-            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
-            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type TextBox}">
-                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
-                            </Trigger>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
-                            </Trigger>
-                            <Trigger Property="IsKeyboardFocused" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <MultiTrigger>
-                    <MultiTrigger.Conditions>
-                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
-                        <Condition Property="IsSelectionActive" Value="false"/>
-                    </MultiTrigger.Conditions>
-                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
-                </MultiTrigger>
-            </Style.Triggers>
-        </Style>
     </UserControl.Resources>
+    <Border x:Name="PART_MainBorder" BorderBrush="LightGray" BorderThickness="1.0" Grid.ColumnSpan="3" >
+        <Grid x:Name="PART_MainGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="19*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="19*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="125" />
+                <ColumnDefinition Width="75"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="PART_Label" TextAlignment="Right" Grid.Column="0" VerticalAlignment="Stretch" Padding="0" Margin="6,0,5,0" TextWrapping="Wrap" IsHitTestVisible="False" Text="{Binding LabelText, ElementName=WMTextBoxEx}" Grid.Row="1"/>
+            <TextBox x:Name="PART_TexBox" Grid.Column="1" Height="38" TextWrapping="NoWrap" Text="{Binding Text, ElementName=WMTextBoxEx}" Width="75" Margin="0" Grid.RowSpan="3" FontSize="22" FontStyle="Italic" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" />
+            <TextBlock x:Name="PART_Comments" Grid.Column="2" Grid.Row="1" Text="{Binding ElementName=WMTextBoxEx, Path=CommentText}" Margin="5,2"/>
+
+
+        </Grid>
+    </Border>
+
 </UserControl>

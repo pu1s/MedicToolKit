@@ -24,12 +24,12 @@ namespace Medic.Tools.Kit.UI.Controls.WatermarkTextBox
 
 
         public bool IsAdornerVizible { get; set; }
-        public Limits Limits { get => limits; set => limits = value; }
+        
 
         private AdornerLayer adornerLayer = null;
         private WatermarkTextBoxAdorner myAdorner = null;
         private AdornerDecorator adornerDecorator = null;
-        private Limits limits;
+        
 
         public class WatermarkTextBoxAdorner : Adorner
         {
@@ -57,7 +57,7 @@ namespace Medic.Tools.Kit.UI.Controls.WatermarkTextBox
            
             GotFocus += WatermarkTextBox_GotFocus;
             LostFocus += WatermarkTextBox_LostFocus;
-            KeyUp += WatermarkTextBox_KeyUp;
+            
             IsAdornerVizible = true;
             adornerLayer = AdornerLayer.GetAdornerLayer(PART_TextBox);
             myAdorner = new WatermarkTextBoxAdorner(PART_TextBox)
@@ -69,19 +69,7 @@ namespace Medic.Tools.Kit.UI.Controls.WatermarkTextBox
         }
         
 
-        private void WatermarkTextBox_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                VereficationData(this.PART_TextBox.Text, Limits, true);
-            }
-        }
-
-        private void VereficationData(string text, Limits limits, bool v)
-        {
-
-        }
-
+        
         private void WatermarkTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
             if (PART_TextBox.Text.Length > 0)
@@ -105,14 +93,6 @@ namespace Medic.Tools.Kit.UI.Controls.WatermarkTextBox
         {
             IsAdornerVizible = (PART_TextBox.Text.Length > 0) ? true : false;
 
-            //if (IsAdornerVizible)
-            //{
-            //    adornerLayer.Add(myAdorner);
-            //}
-            //else
-            //{
-            //    adornerLayer.Remove(myAdorner);
-            //}
         }
     }
 }

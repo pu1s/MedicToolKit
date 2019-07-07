@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Medic.Tools.Kit.Utility;
 
 namespace MedicTools
 {
@@ -25,8 +26,11 @@ namespace MedicTools
         public MainWindow()
         {
             InitializeComponent();
-           
-            
+
+            WMTB.CommentText = "cm";
+            WMTB.Text = "";
+            WMTB.LabelText = "Рост";
+                    
            
         }
     }
