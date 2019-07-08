@@ -12,25 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Medic.Tools.Kit.Utility;
 
-namespace MedicTools
+namespace MedicTools.UI.Controls.IndexMassBody
 {
-    
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для IndexMassBody.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class IndexMassBody : UserControl
     {
-
-        public MainWindow()
+        public IndexMassBody()
         {
             InitializeComponent();
-
-            
-                    
-           
         }
     }
-    
 }

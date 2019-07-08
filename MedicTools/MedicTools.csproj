@@ -55,6 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UI\Controls\IndexMassBody\IndexMassBody.xaml.cs">
+      <DependentUpon>IndexMassBody.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\LabelTextBox\LabeltextBox.xaml.cs">
+      <DependentUpon>LabeltextBox.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -68,6 +74,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Themes\DictionaryControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\IndexMassBody\IndexMassBody.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\LabelTextBox\LabeltextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
