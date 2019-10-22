@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MedicalToolsKit;
 
 namespace MedicalCalculator
 {
@@ -23,6 +24,14 @@ namespace MedicalCalculator
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ArgumentLimitDictionary<float> f = new ArgumentLimitDictionary<float>("test", 0, 10);
+           f.Add("test2", 1, 100);
+            TXT.Text = f.ToString();
         }
     }
 }
