@@ -1,30 +1,87 @@
 ﻿using System;
+using System.Collections.Generic;
+
 
 namespace MedicalToolsKit
 {
-    public class Limits<T>
+   public struct Limit
+    { 
+        public float Lower { get; set; }
+        public float Upper { get; set; }
+    }
+
+    //public struct Limit<T>
+    //{
+    //    public T Lower { get; set; }
+    //    public T Upper { get; set; }
+    //}
+
+    public class LimitsDictionary
     {
-        private T _lower;
-        private T _upper;
+        private readonly Dictionary<string, Limit> Limits;
 
-        private Limits()
+        private LimitsDictionary()
         {
-            _lower = default;
-            _upper = default;
+            Limits = new Dictionary<string, Limit>();
+        }
+        public LimitsDictionary(string keyName, float lower, float upper) :this()
+        {
+            if (string.IsNullOrEmpty(keyName)) throw new LimitsDictionaryException(@"Key name is empty!");
+            if (lower > upper) throw new LimitsDictionaryException(@"Lower value cannot be greater than upper value!");
+            Limit lim = CreateNewLimit(lower, upper);
+            Add(keyName, lim);
         }
 
-        public Limits(T lower, T upper)
+        internal static Limit CreateNewLimit(float lower, float upper)
         {
-            _lower = lower;
-            _upper = upper;
-        }
-
-        public bool IsTryLimits { get; }
-        public class LimitsRangeOutException : Exception
-        {
-            public LimitsRangeOutException(string message) : base(message)
+            return new Limit
             {
-            }
+                Lower = lower,
+                Upper = upper
+            };
+        }
+
+        internal void Add(string keyName, Limit lim)
+        {
+            Limits.Add(keyName, lim);
         }
     }
+
+    public class LimitsDictionaryException : Exception
+    {
+        private readonly string _message;
+
+        public new string Message => _message;
+
+        private LimitsDictionaryException()
+        {
+            _message = string.Empty;
+        }
+
+        public LimitsDictionaryException(string message) : base(message)
+        {
+            _message = message;
+        }
+    }
+
+
+    //public class LimitsDictionary<T>
+    //{
+    //    private Dictionary<string, Limit<T>> Limits;
+
+    //    private LimitsDictionary()
+    //    {
+    //        Limits = new Dictionary<string, Limit<T>>();
+    //    }
+    //    public LimitsDictionary(string keyName, T lower, T upper) : this()
+    //    {
+
+    //        Limit<T> lim = new Limit<T>
+    //        {
+    //            Lower = lower,
+    //            Upper = upper
+    //        };
+    //        Limits.Add(keyName, lim);
+    //    }
+    //}
 }

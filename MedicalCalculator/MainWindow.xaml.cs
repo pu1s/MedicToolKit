@@ -29,9 +29,8 @@ namespace MedicalCalculator
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ArgumentLimitDictionary<float> f = new ArgumentLimitDictionary<float>("test", 0, 10);
-           f.Add("test2", 1, 100);
-            TXT.Text = f.ToString();
+           
+            
         }
     }
 }
