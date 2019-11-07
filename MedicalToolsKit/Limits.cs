@@ -10,7 +10,7 @@ namespace MedicalToolsKit
         public float Upper { get; set; }
     }
 
-    //public struct Limit<T>
+    //public struct Limit<T> 
     //{
     //    public T Lower { get; set; }
     //    public T Upper { get; set; }
@@ -26,8 +26,8 @@ namespace MedicalToolsKit
         }
         public LimitsDictionary(string keyName, float lower, float upper) :this()
         {
-            if (string.IsNullOrEmpty(keyName)) throw new LimitsDictionaryException(@"Key name is empty!");
-            if (lower > upper) throw new LimitsDictionaryException(@"Lower value cannot be greater than upper value!");
+            if (string.IsNullOrEmpty(keyName)) throw new LimitsDictionaryException(LimitsDictionaryException.ERROR_KEY_IS_EMPTY);
+            if (lower > upper) throw new LimitsDictionaryException(LimitsDictionaryException.ERROR_LVAL_GR_UVAL);
             Limit lim = CreateNewLimit(lower, upper);
             Add(keyName, lim);
         }
@@ -49,6 +49,8 @@ namespace MedicalToolsKit
 
     public class LimitsDictionaryException : Exception
     {
+        public const string ERROR_KEY_IS_EMPTY = @"Key name is empty!";
+        public const string ERROR_LVAL_GR_UVAL = @"Lower value cannot be greater than upper value!";
         private readonly string _message;
 
         public new string Message => _message;
